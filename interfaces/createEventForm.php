@@ -22,6 +22,7 @@
 
 			URL: <input type="url" name="url" /><br><br>
 			<input type="submit" />
+			<input type="button" value="Go Back" onclick="location.href='adminInterface.php'" />
 		</form>
 	</body>
 </html>

@@ -18,17 +18,17 @@ include '../events/listEvents.php';
 				<li>Create a new event</li>
 			</ul>
 		</p>
+
 		<h2>Have an event?</h2>
-		<button>Create an Event</button>
+		<button onclick="location.href='createEventForm.php'" type="button">Create an Event</button>
+
 		<h2>List of Events You've Organized...</h2>
 		<input 
 			type='checkbox' 
 			name='my_checkbox'
         	onclick="check(this);" >
 		<label for='my_checkbox'>List only active events</label>
-		
 		<p></p>
-
 		<?php
 		// Get the list of the events with eid=1
 		getList(1);
