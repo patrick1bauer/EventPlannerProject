@@ -23,7 +23,7 @@ setcookie("login", json_encode($arr), time() + 3600);
 
 // Check if user is logged in.  If not, kick to home.
 if(!isset($_COOKIE['login'])) {
-  header("Location: home.html");
+  header("Location: home.php");
 }
 
 
@@ -47,6 +47,8 @@ print <<<EOF
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 EOF;
+
+navbar();
 
 // Alerts
 if (isset($_GET['eventinvite']))
