@@ -75,7 +75,7 @@ setcookie("login", json_encode($arr), time() + 3600);
 
 // Check if user is logged in.  If not, kick to home.
 if(!isset($_COOKIE['login'])) {
-  header("Location: home.html");
+  header("Location: home.php");
 }
 
 // Get user's credentials
