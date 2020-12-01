@@ -86,7 +86,7 @@ $super_admin = $arr['super_admin'];
 
 // If user is not logged in or is not a superadmin, kick to homepage.
 if ($super_admin == 0) {
-  header("Location: home.html");
+  header("Location: home.php");
 }
 
 
