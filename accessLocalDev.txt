@@ -53,7 +53,7 @@ REQUEST EVENT CREATE TABLE
 ---------------------------------
 REQUEST EVENT JOIN TABLE
 ---------------------------------
-> CREATE TABLE requesteventjoin (eid INT, uid INT, date DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(eid, uid), CONSTRAINT FK_RequestEvent FOREIGN KEY (eid) REFERENCES events(eid), CONSTRAINT FK_RequestUser FOREIGN KEY (uid) REFERENCES user(uid));
+> CREATE TABLE requesteventjoin (eid INT, uid INT, date DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(eid, uid), CONSTRAINT FK_JoinEvent FOREIGN KEY (eid) REFERENCES events(eid), CONSTRAINT FK_JoinUser FOREIGN KEY (uid) REFERENCES user(uid));
   
   Add to Request Event Join Table
   -----
@@ -70,7 +70,7 @@ REQUEST EVENT JOIN TABLE
 ---------------------------------
 EVENTS JOINED TABLE
 ---------------------------------
-> CREATE TABLE eventsjoined (eid INT, uid INT, date DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(eid, uid), CONSTRAINT FK_RequestEvent FOREIGN KEY (eid) REFERENCES events(eid), CONSTRAINT FK_RequestUser FOREIGN KEY (uid) REFERENCES user(uid));
+> CREATE TABLE eventsjoined (eid INT, uid INT, date DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY(eid, uid), CONSTRAINT FK_JoinedEvent FOREIGN KEY (eid) REFERENCES events(eid), CONSTRAINT FK_JoinedUser FOREIGN KEY (uid) REFERENCES user(uid));
 
   Add to Request Event Join Table
   -----
