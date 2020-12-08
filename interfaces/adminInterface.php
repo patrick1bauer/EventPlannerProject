@@ -3,6 +3,7 @@
 session_start();
 
 include '../events/listEvents.php';
+include('../helper.php');
 
 // Check if the user is logged in, if not then redirect them to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
@@ -10,6 +11,15 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 	header("location: ../login.php");
 	exit;
 }
+
+navbar();
+
+// Get user's credentials
+$arr = json_decode(stripslashes($_COOKIE['login']), true);
+$myid = $arr['uid'];
+$name = $arr['name'];
+$super_admin = $arr['super_admin'];
+
 ?>
 
 <!DOCTYPE html>
@@ -18,11 +28,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	</head>
 	<body>
-		<h1>Admin Interface</h1>
 		<p>
 			<a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
 			<a href="../logout.php" class="btn btn-danger">Sign Out</a>
 		</p>
+		<h1>Admin Interface</h1>
 		<h1>Hi, <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to the Admin Interface!</h1>
 		<p>Here you can...
 			<ul>
@@ -43,8 +53,8 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 		<label for='my_checkbox'>List only active events</label>
 		<p></p>
 		<?php
-		// Get the list of the events with eid=1
-		getList(1);
+		// Get the list of the events belonging to user
+		getList($myid);
 		?>
 
 	</body>

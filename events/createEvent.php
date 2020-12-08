@@ -37,7 +37,7 @@ else
 	if(!$insertEventRequest)
 		echo('Error requesting to join event!');
 	else
-		echo('Successfully requested to create event!<br><button onclick="location.href='adminInterface.php'" type="button">Back to Admin Interface</button>');
+		echo("Successfully requested to create event!<br><button onclick=\"location.href='../interfaces/adminInterface.php'\" type=\"button\">Back to Admin Interface</button>");
 }
 
 // Close connection

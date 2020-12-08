@@ -1,11 +1,41 @@
+<?php
+// Initialize the session
+session_start();
+
+include '../events/listEvents.php';
+include('../helper.php');
+
+// Check if the user is logged in, if not then redirect them to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
+{
+	header("location: ../login.php");
+	exit;
+}
+
+navbar();
+
+// Get user's credentials
+$arr = json_decode(stripslashes($_COOKIE['login']), true);
+$myid = $arr['uid'];
+$name = $arr['name'];
+$super_admin = $arr['super_admin'];
+
+
+?>
+
+<!DOCTYPE html>
 <html>
 	<body>
+		<p>
+			<a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
+			<a href="../logout.php" class="btn btn-danger">Sign Out</a>
+		</p>
 		<h1>Create an Event</h1>
 		<form action="../events/createEvent.php" method="post">
 			Name: <input type="text" name="name" /><br><br>
-
-			Admin: <input type="number" name="admin" /><br><br>
-
+			<?php
+				echo ("<input type=\"hidden\" name=\"admin\" value='$myid'/>");
+			?>
 			State: <input type="text" name="state" /><br><br>
 
 			City: <input type="text" name="city" /><br><br>

@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(E_ERROR | E_PARSE);
 // Perform mysqli query
 function query($query, $mysqli) {
   $result = mysqli_query($mysqli, $query);
