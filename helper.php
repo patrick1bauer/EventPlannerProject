@@ -26,8 +26,8 @@ function navbar() {
     EOF;
         if(!isset($_COOKIE['login'])) {
           print <<<EOF
-            <li><a href="login.php">Login</a></li>
-            <li><a href="signup.php">Sign up</a></li>
+            <li><a href="../login.php">Login</a></li>
+            <li><a href="../register.php">Sign up</a></li>
           EOF;
         } else {
           $arr = json_decode(stripslashes($_COOKIE['login']), true);
