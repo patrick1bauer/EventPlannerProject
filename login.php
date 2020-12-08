@@ -64,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 if(mysqli_stmt_num_rows($stmt) == 1)
                 {                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $name, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $uid, $name, $hashed_password);
                     if(mysqli_stmt_fetch($stmt))
                     {
                         if(password_verify($password, $hashed_password))
@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
+                            $_SESSION["uid"] = $uid;
                             $_SESSION["name"] = $name;
                             
                             // Create a User Cookie
