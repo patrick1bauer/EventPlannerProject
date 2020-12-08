@@ -34,7 +34,7 @@ function navbar() {
           print <<<EOF
             <li><a href="requests.php"</a>Requests</li>
           EOF;
-          if (arr['super_admin']) {
+          if (arr['super_admin'] == 1) {
             print <<<EOF
               <li><a href="superadmin.php"</a>Super Admin</li>
             EOF;

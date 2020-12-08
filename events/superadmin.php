@@ -3,18 +3,18 @@ session_start();
 include('../config.php');
 include('../helper.php');
 
-
 $mysqli = mysqli_connect($GLOBALS['database_host'], $GLOBALS['database_user'], $GLOBALS['database_pass'], $GLOBALS['database_name']);
 // Check connection
-if ($mysqli -> connect_errno) {
+if ($mysqli -> connect_errno)
+{
   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
   exit();
 }
 
-
-
-function print_table($result, $mysqli) {
-  if ($result -> num_rows > 0) {
+function print_table($result, $mysqli)
+{
+  if ($result -> num_rows > 0)
+  {
     print <<<EOF
       <table class="table table-striped table-hover table-responsive">
         <tr>
@@ -28,7 +28,8 @@ function print_table($result, $mysqli) {
           <td></td>
         </tr>
       EOF;
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result))
+    {
       $admin = $row['admin'];
       $user_name = getOne("SELECT name FROM user WHERE uid=$admin", $mysqli);
       $eid = $row['eid'];
@@ -54,7 +55,9 @@ function print_table($result, $mysqli) {
     print <<<EOF
       </table>
     EOF;
-  } else {
+  }
+  else
+  {
     print <<<EOF
     <div class="alert alert-info">
       <strong>No results.</strong>
@@ -74,7 +77,8 @@ setcookie("login", json_encode($arr), time() + 3600);
 */
 
 // Check if user is logged in.  If not, kick to home.
-if(!isset($_COOKIE['login'])) {
+if(!isset($_COOKIE['login']))
+{
   header("Location: home.php");
 }
 
@@ -85,10 +89,10 @@ $name = $arr['name'];
 $super_admin = $arr['super_admin'];
 
 // If user is not logged in or is not a superadmin, kick to homepage.
-if ($super_admin == 0) {
+if ($super_admin == 0)
+{
   header("Location: home.php");
 }
-
 
 print <<<EOF
 <html>
@@ -114,18 +118,21 @@ print <<<EOF
       <button type="submit" class="btn btn-default">search</button>
   </form>
 EOF;
-if (isset($_POST['search_event_admin'])) {
+if (isset($_POST['search_event_admin']))
+{
   $_SESSION['search_event_admin'] = $_POST['search_event_admin'];
   $result = query("SELECT * FROM events WHERE admin=(SELECT uid FROM user WHERE name='". $_POST['search_event_admin'] ."')", $mysqli);
-} else if (isset($_SESSION['search_event_admin'])) {
+}
+else if (isset($_SESSION['search_event_admin']))
+{
   $result = query("SELECT * FROM events WHERE admin=(SELECT uid FROM user WHERE name='". $_SESSION['search_event_admin'] ."')", $mysqli);
-} else {
+}
+else
+{
   $result = query("SELECT * FROM events", $mysqli);
 }
 // Events by Admin table
 print_table($result, $mysqli);
-
-
 
 // List events participated by a particular User
 // Search bar
@@ -139,21 +146,25 @@ print <<<EOF
   </form>
 EOF;
 
-
-if (isset($_POST['events_joined_user'])) {
+if (isset($_POST['events_joined_user']))
+{
   $_SESSION['events_joined_user'] = $_POST['events_joined_user'];
   $result1 = query("SELECT E.eid as eid, E.name as name, E.admin as admin, E.state as state,
     E.city as city, E.zip as zip, E.street as street, E.description as description,
     E.startDate as startDate, E.endDate as endDate, E.url as url, U.uid as uid
     FROM events E, user U, eventsjoined EJ
     WHERE U.name='". $_SESSION['events_joined_user'] ."' && U.uid=EJ.uid && E.eid=EJ.eid", $mysqli);
-} else if (isset($_SESSION['events_joined_user'])) {
+}
+else if (isset($_SESSION['events_joined_user']))
+{
   $result1 = query("SELECT E.eid as eid, E.name as name, E.admin as admin, E.state as state,
     E.city as city, E.zip as zip, E.street as street, E.description as description,
     E.startDate as startDate, E.endDate as endDate, E.url as url, U.uid as uid
     FROM events E, user U, eventsjoined EJ
     WHERE U.name='". $_SESSION['events_joined_user'] ."' && U.uid=EJ.uid && E.eid=EJ.eid", $mysqli);
-} else {
+}
+else
+{
   $result = query("SELECT * FROM events", $mysqli);
 }
 
@@ -164,5 +175,4 @@ print <<<EOF
 </body>
 </html>
 EOF;
-
 ?>
