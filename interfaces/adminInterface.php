@@ -1,17 +1,30 @@
-
 <?php
+// Initialize the session
+session_start();
+
 include '../events/listEvents.php';
+
+// Check if the user is logged in, if not then redirect them to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
+{
+	header("location: ../login.php");
+	exit;
+}
 ?>
 
+<!DOCTYPE html>
 <html>
-
 	<head>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	</head>
-	
 	<body>
 		<h1>Admin Interface</h1>
-		<p> Welcome to the Admin Interface here you can...
+		<p>
+			<a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
+			<a href="../logout.php" class="btn btn-danger">Sign Out</a>
+		</p>
+		<h1>Hi, <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to the Admin Interface!
+		<p>Here you can...
 			<ul>
 				<li>View a list of the title and the URL of all the events you have organized.</li>
 				<li>Toggle the display list to only display active events</li>
