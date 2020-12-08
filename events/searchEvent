@@ -6,14 +6,30 @@ if(isset($_POST['search']))
     $input_E_Date = $_POST['input_E_Date'];
     // search in all table columns
     // using concat mysql function
-    $query = "SELECT * FROM events WHERE startDate between '".$input_S_Date."' AND '".$input_E_Date."'";
+    $query = "SELECT * FROM events WHERE startDate between '".$input_S_Date."' AND '".$input_E_Date."' ORDER BY startDate";
     $search_result = filterTable($query);
     
 }
- else {
-    $query = "SELECT * FROM `events`";
+else if(isset($_POST['searchC']))
+{
+    $input_City = $_POST['input_City'];
+	$current_Date = date("Y-m-d H:i:s"); // date("Y-m-d H:i:s") finds the current date and returns it in the MySQL DATETIME format
+
+	// finds all entries that take place at the chosen city and then farther narrows it down by which ones are currently ongoing
+    $query = "SELECT * 
+			  FROM (SELECT * 
+					FROM events 
+					WHERE city = '".$input_City."'
+					) AS Temp 
+			  WHERE '".$current_Date."' between Temp.startDate AND Temp.endDate";
+
     $search_result = filterTable($query);
 }
+ else { // by default, show all events if no search parameters have been entered yet 
+    $query = "SELECT * FROM `events`";
+    $search_result = filterTable($query);
+} 
+
 
 // function to connect and execute the query
 function filterTable($query)
@@ -31,7 +47,7 @@ function filterTable($query)
 	  die("Connection failed: " . mysqli_connect_error());
 	}
 	
-    $filter_Result = mysqli_query($conn, $query);
+    $filter_Result = mysqli_query($conn, $query) or die( mysqli_error($conn));
     return $filter_Result;
 }
 
@@ -56,7 +72,7 @@ function filterTable($query)
        </style>
     </head>
     <body>
-		<h2> Enter a start and end time</h2>
+		<h2> Search event by start and end time</h2>
     <form action="searchEvent.php" method="post">
 			
     <label>Start Date</label>
@@ -69,6 +85,13 @@ function filterTable($query)
     <br></br>
     <input type="submit" name=search value="Show Events">
     <br></br>
+	
+	<h2> Or search currently ongoing events by city</h2>
+	<input type=text name="input_City">
+    <input type="submit" name=searchC value="Show Events">
+	<br></br>
+	
+	
     <table>
       <tr>
           <th>Name</th>
