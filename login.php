@@ -14,7 +14,9 @@ require_once "loginRegisterConfig.php";
 // Define variables and initialize with empty values
 $name = "";
 $password = "";
-$username_err = "";
+$super_admin = "";
+
+$name_err = "";
 $password_err = "";
 
 // Processing form data when form is submitted
@@ -44,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(empty($name_err) && empty($password_err))
     {
         // Prepare a select statement
-        $sql = "SELECT uid, name, password FROM user WHERE name = ?";
+        $sql = "SELECT uid, name, password, super_admin FROM user WHERE name = ?";
         
         if($stmt = mysqli_prepare($link, $sql))
         {
@@ -76,6 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             $_SESSION["loggedin"] = true;
                             $_SESSION["uid"] = $uid;
                             $_SESSION["name"] = $name;
+                            $_SESSION["super_admin"] = $super_admin;
                             
                             // Create a User Cookie
                             $arr = array(
