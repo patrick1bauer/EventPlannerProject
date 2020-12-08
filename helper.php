@@ -47,4 +47,18 @@ function navbar() {
   EOF;
 }
 
+function resetPassword()
+{
+  print <<<EOF
+    <a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
+  EOF;
+}
+
+function signOut()
+{
+  print <<<EOF
+    <a href="../logout.php" class="btn btn-danger">Sign Out</a>
+  EOF;
+}
+
 ?>

@@ -26,8 +26,12 @@ include('../helper.php');
     </div>
     <div class="container">
       <p>
-        <a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
-        <a href="../logout.php" class="btn btn-danger">Sign Out</a>
+        <div>
+          <?php echo resetPassword() ?>
+        </div>
+        <div>
+          <?php echo signOut() ?>
+        </div>
       </p>
     </div>
   <body>
