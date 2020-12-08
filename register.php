@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     else
     {
         // Prepare a select statement
-        $sql = "SELECT id FROM user WHERE name = ?";
+        $sql = "SELECT uid FROM user WHERE name = ?";
         
         if($stmt = mysqli_prepare($link, $sql))
         {
@@ -87,12 +87,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
     
     // Check input errors before inserting in database
-    if(empty($name_err) && empty($password_err) && empty($confirm_password_err)){
-        
+    if(empty($name_err) && empty($password_err) && empty($confirm_password_err))
+    {
         // Prepare an insert statement
         $sql = "INSERT INTO user (name, password) VALUES (?, ?)";
          
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($link, $sql))
+        {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ss", $param_name, $param_password);
             
@@ -104,10 +105,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             // $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
             
             // Attempt to execute the prepared statement
-            if(mysqli_stmt_execute($stmt)){
+            if(mysqli_stmt_execute($stmt))
+            {
                 // Redirect to login page
                 header("location: login.php");
-            } else{
+            }
+            else
+            {
                 echo "Something went wrong. Please try again later.";
             }
 

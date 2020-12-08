@@ -75,10 +75,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["name"] = $name;                            
+                            $_SESSION["name"] = $name;
                             
+                            // Create a User Cookie
+                            $arr = array(
+                                "uid" => $uid,
+                                "name" => $name,
+                                "super_admin" => $super_admin
+                            );
+                            setcookie("login", json_encode($arr), time() + 36000);
+
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: interfaces/adminInterface.php");
                         }
                         else
                         {
