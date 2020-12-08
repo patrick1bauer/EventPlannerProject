@@ -80,13 +80,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             $_SESSION["super_admin"] = $super_admin;
                             
                             // Create a User Cookie
+                            /*
                             $arr = array(
                                 "uid" => $uid,
                                 "name" => $name,
                                 "super_admin" => $super_admin
                             );
                             setcookie("login", json_encode($arr), time() + 36000);
-
+                            */
+                            
                             // Redirect user to welcome page
                             header("location: events/home.php");
                         }
