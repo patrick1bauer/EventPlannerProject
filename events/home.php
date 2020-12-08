@@ -12,11 +12,11 @@ print <<<EOF
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+EOF;
 
-    EOF;
-    navbar();
-    print <<<EOF
+navbar();
 
+print <<<EOF
     <div class="container">
       <div class="jumbotron">
         <h1>EventPlannerProject</h1>
@@ -32,4 +32,5 @@ print <<<EOF
   <body>
 </html>
 EOF;
+
 ?>
