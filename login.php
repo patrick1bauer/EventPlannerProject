@@ -14,7 +14,6 @@ require_once "loginRegisterConfig.php";
 // Define variables and initialize with empty values
 $name = "";
 $password = "";
-$super_admin = "";
 
 $name_err = "";
 $password_err = "";
@@ -66,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 if(mysqli_stmt_num_rows($stmt) == 1)
                 {                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $uid, $name, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $uid, $name, $hashed_password, $super_admin);
                     if(mysqli_stmt_fetch($stmt))
                     {
                         if(password_verify($password, $hashed_password))
