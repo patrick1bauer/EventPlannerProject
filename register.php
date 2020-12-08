@@ -98,7 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             
             // Set parameters
             $param_name = $name;
-            $param_password = $password:
+            $param_password = $password;
 
             // USE THIS FOR PASSWORD INSTEAD IF WE WANT TO HASH PASSWORDS:
             // $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
