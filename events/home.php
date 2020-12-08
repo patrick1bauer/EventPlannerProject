@@ -1,7 +1,8 @@
 <?php
 include('../helper.php');
+?>
 
-print <<<EOF
+<!DOCTYPE html>
 <html>
   <body>
     <!-- Latest compiled and minified CSS -->
@@ -12,11 +13,11 @@ print <<<EOF
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-EOF;
 
-navbar();
+    <div>
+      <?php echo navbar() ?>
+    </div>
 
-print <<<EOF
     <div class="container">
       <div class="jumbotron">
         <h1>EventPlannerProject</h1>
@@ -31,6 +32,3 @@ print <<<EOF
     </div>
   <body>
 </html>
-EOF;
-
-?>
