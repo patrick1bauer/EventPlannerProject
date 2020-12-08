@@ -28,13 +28,10 @@ $super_admin = $arr['super_admin'];
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	</head>
 	<body>
-<<<<<<< HEAD
 		<p>
 			<a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
 			<a href="../logout.php" class="btn btn-danger">Sign Out</a>
 		</p>
-=======
->>>>>>> ab9580feec397bbdec09eebd74b73e3e38f6919c
 		<h1>Admin Interface</h1>
 		<h1>Hi, <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to the Admin Interface!</h1>
 		<p>Here you can...
