@@ -4,7 +4,7 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: interfaces/welcome.php");
+    header("location: events/home.php");
     exit;
 }
  
@@ -86,7 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             setcookie("login", json_encode($arr), time() + 36000);
 
                             // Redirect user to welcome page
-                            header("location: interfaces/adminInterface.php");
+                            header("location: events/home.php");
                         }
                         else
                         {
