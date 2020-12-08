@@ -19,10 +19,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 	</head>
 	<body>
 		<h1>Admin Interface</h1>
-		<p>
-			<a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
-			<a href="../logout.php" class="btn btn-danger">Sign Out</a>
-		</p>
 		<h1>Hi, <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to the Admin Interface!</h1>
 		<p>Here you can...
 			<ul>

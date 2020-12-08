@@ -19,9 +19,15 @@ navbar();
 print <<<EOF
     <div class="container">
       <div class="jumbotron">
-      <h1>EventPlannerProject</h1>
-      <p>Browse events, create your own events, and join events on EventPlannerProject</p>
+        <h1>EventPlannerProject</h1>
+        <p>Browse events, create your own events, and join events on EventPlannerProject</p>
       </div>
+    </div>
+    <div class="container">
+      <p>
+        <a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
+        <a href="../logout.php" class="btn btn-danger">Sign Out</a>
+      </p>
     </div>
   <body>
 </html>
