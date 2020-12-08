@@ -28,8 +28,6 @@ include('../helper.php');
       <p>
         <div>
           <?php echo resetPassword() ?>
-        </div>
-        <div>
           <?php echo signOut() ?>
         </div>
       </p>
