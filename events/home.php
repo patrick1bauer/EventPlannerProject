@@ -2,6 +2,8 @@
 // Initialize the session
 session_start();
 
+include '../helper.php';
+
 // Check if the user is logged in, if not then redirect them to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 {
@@ -9,7 +11,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 	exit;
 }
 
-include('../helper.php');
 
 print <<<EOF
 <html>
