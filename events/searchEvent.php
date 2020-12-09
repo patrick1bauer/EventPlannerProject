@@ -1,5 +1,5 @@
+ini_set('display errors', '1');
 <?php
-
 if(isset($_POST['search']))
 {
     $input_S_Date = $_POST['input_S_Date'];
