@@ -36,7 +36,8 @@ function navbar() {
             <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/requests.php">Requests</a></li>
             <li><a href="http://www.eventplannerproject.com/EventPlannerProject/interfaces/adminInterface.php">Admin Interface</a></li>
           EOF;
-          if (arr['super_admin'] == 1) {
+
+          if ($arr['super_admin'] == 1) {
             print <<<EOF
               <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/superadmin.php">Super Admin</a></li>
             EOF;
