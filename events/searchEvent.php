@@ -74,7 +74,7 @@ function filterTable($query)
        </style>
     </head>
     <body>
-		<h2> Search event by start and end time</h2>
+		<h2>Search event by start and end time</h2>
     <form action="searchEvent.php" method="post">
 			
     <label>Start Date</label>
