@@ -25,7 +25,9 @@ else if(isset($_POST['searchC']))
 
     $search_result = filterTable($query);
 }
- else { // by default, show all events if no search parameters have been entered yet 
+else
+{
+    // by default, show all events if no search parameters have been entered yet 
     $query = "SELECT * FROM `events`";
     $search_result = filterTable($query);
 } 
