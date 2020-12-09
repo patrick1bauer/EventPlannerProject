@@ -4,12 +4,12 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: http://www.eventplannerproject.com/EventPlannerProject/events/home.php");
+    header("location: events/home.php");
     exit;
 }
  
 // Include config file
-require_once "http://www.eventplannerproject.com/EventPlannerProject/loginRegisterConfig.php";
+require_once "loginRegisterConfig.php";
  
 // Define variables and initialize with empty values
 $name = "";
@@ -88,7 +88,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                             setcookie("login", json_encode($arr), time() + 36000);
 
                             // Redirect user to welcome page
-                            header("location: http://www.eventplannerproject.com/EventPlannerProject/events/home.php");
+                            header("location: events/home.php");
                         }
                         else
                         {
@@ -147,7 +147,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Login">
                 </div>
-                <p>Don't have an account? <a href="http://www.eventplannerproject.com/EventPlannerProject/register.php">Sign up now</a>.</p>
+                <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
             </form>
         </div>    
     </body>
