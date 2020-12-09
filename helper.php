@@ -26,13 +26,13 @@ function navbar() {
     EOF;
         if(!isset($_COOKIE['login'])) {
           print <<<EOF
-            <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/searchEvent.php">Events</a></li>
             <li><a href="http://www.eventplannerproject.com/EventPlannerProject/login.php">Login</a></li>
             <li><a href="http://www.eventplannerproject.com/EventPlannerProject/register.php">Sign up</a></li>
           EOF;
         } else {
           $arr = json_decode(stripslashes($_COOKIE['login']), true);
           print <<<EOF
+            <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/searchEvent.php">Events</a></li>
             <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/requests.php">Requests</a></li>
             <li><a href="http://www.eventplannerproject.com/EventPlannerProject/interfaces/adminInterface.php">Admin Interface</a></li>
           EOF;
