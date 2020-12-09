@@ -110,6 +110,7 @@ $super_admin = $arr['super_admin'];
 				<p>Here you can...
 					<ul>
 						<li>Search event by start and end time.</li>
+						<li>Search currently ongoing events by city.</li>
 					</ul>
 				</p>
 			</div>
@@ -138,7 +139,7 @@ $super_admin = $arr['super_admin'];
             <input  class="btn btn-primary mb-2" type="submit" name=search value="Show Events">
             <br></br>
             
-            <h2> Or search currently ongoing events by city</h2>
+            <h2>Or search currently ongoing events by city</h2>
             <input class="form-control"  type=text name="input_City"><br>
             <input  class="btn btn-primary mb-2" type="submit" name=searchC value="Show Events">
             <br></br>
