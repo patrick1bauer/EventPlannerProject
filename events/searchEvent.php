@@ -53,6 +53,7 @@ function filterTable($query)
 
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <title>Search Events</title>
