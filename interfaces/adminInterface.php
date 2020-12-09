@@ -26,7 +26,7 @@ $super_admin = $arr['super_admin'];
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title>Admin Interface</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <style type="text/css">
@@ -35,35 +35,46 @@ $super_admin = $arr['super_admin'];
         </style>
     </head>
 	<body>
-		<p>
-			<a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
-			<a href="../logout.php" class="btn btn-danger">Sign Out</a>
-		</p>
-		<h1>Admin Interface</h1>
-		<h1>Hi, <b><?php echo htmlspecialchars($_SESSION["name"]); ?></b>. Welcome to the Admin Interface!</h1>
-		<p>Here you can...
-			<ul>
-				<li>View a list of the title and the URL of all the events you have organized.</li>
-				<li>Toggle the display list to only display active events</li>
-				<li>Create a new event</li>
-			</ul>
-		</p>
+		
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Welcome to the Admin Interface!</h1>
+				<p>Here you can...
+					<ul>
+						<li>View a list of the title and the URL of all the events you have organized.</li>
+						<li>Toggle the display list to only display active events</li>
+						<li>Create a new event</li>
+					</ul>
+				</p>
+			</div>
+			
+			<div class="container">
+				<p>
+					<div>
+					<?php echo resetPassword() ?>
+					<?php echo signOut() ?>
+					</div>
+				</p>
+			</div>
+		</div>
+		<div class="container">
 
-		<h2>Have an event?</h2>
-		<button onclick="location.href='createEventForm.php'" type="button">Create an Event</button>
+			<h2>Have an event?</h2>
+			<button   class="btn btn-primary mb-2" onclick="location.href='createEventForm.php'" type="button">Create an Event</button>
 
-		<h2>List of Events You've Organized...</h2>
-		<input 
-			type='checkbox' 
-			name='my_checkbox'
-        	onclick="check(this);" >
-		<label for='my_checkbox'>List only active events</label>
-		<p></p>
-		<?php
-		// Get the list of the events belonging to user
-		getList($myid);
-		?>
-
+			<h2>List of Events You've Organized...</h2>
+			<input 
+				type='checkbox' 
+				name='my_checkbox'
+				onclick="check(this);" 
+				class="form-check-input">
+			<label for='my_checkbox'>List only active events</label>
+			<p></p>
+			<?php
+			// Get the list of the events belonging to user
+			getList($myid);
+			?>
+		</div>
 	</body>
 
 	<script>
