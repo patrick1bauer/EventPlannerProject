@@ -14,8 +14,7 @@ function getOne($query, $mysqli) {
   return $row[0];
 }
 
-function navbar()
-{
+function navbar() {
   print <<<EOF
     <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -25,7 +24,7 @@ function navbar()
       <ul class="nav navbar-nav">
         <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/home.php">Home</a></li>
         <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/searchEvent.php">Events</a></li>
-        EOF;
+    EOF;
         if(!isset($_COOKIE['login'])) {
           print <<<EOF
             <li><a href="http://www.eventplannerproject.com/EventPlannerProject/login.php">Login</a></li>
@@ -44,7 +43,7 @@ function navbar()
           }
         }
         print <<<EOF
-      </ul>
+        </ul>
       </div>
     </nav>
   EOF;
