@@ -52,16 +52,20 @@ function navbar() {
 
 function resetPassword()
 {
-  print <<<EOF
-    <a href="http://www.eventplannerproject.com/EventPlannerProject/reset-password.php" class="btn btn-warning">Reset Password</a>
-  EOF;
+  if(!isset($_COOKIE['login'])) {
+    print <<<EOF
+      <a href="http://www.eventplannerproject.com/EventPlannerProject/reset-password.php" class="btn btn-warning">Reset Password</a>
+    EOF;
+  }
 }
 
 function signOut()
 {
-  print <<<EOF
-    <a href="http://www.eventplannerproject.com/EventPlannerProject/logout.php" class="btn btn-danger">Sign Out</a>
-  EOF;
+  if(!isset($_COOKIE['login'])) {
+    print <<<EOF
+      <a href="http://www.eventplannerproject.com/EventPlannerProject/logout.php" class="btn btn-danger">Sign Out</a>
+    EOF;
+  }
 }
 
 ?>
