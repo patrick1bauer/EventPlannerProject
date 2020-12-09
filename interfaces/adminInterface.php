@@ -58,7 +58,6 @@ $super_admin = $arr['super_admin'];
 			</div>
 		</div>
 		<div class="container">
-
 			<h2>Have an event?</h2>
 			<button   class="btn btn-primary mb-2" onclick="location.href='createEventForm.php'" type="button">Create an Event</button>
 
