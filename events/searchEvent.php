@@ -53,6 +53,28 @@ function filterTable($query)
     $filter_Result = mysqli_query($conn, $query) or die( mysqli_error($conn));
     return $filter_Result;
 }
+
+// Initialize the session
+session_start();
+
+include('../events/listEvents.php');
+include('../helper.php');
+
+// Check if the user is logged in, if not then redirect them to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
+{
+	header("location: http://www.eventplannerproject.com/EventPlannerProject/login.php");
+	exit;
+}
+
+navbar();
+
+// Get user's credentials
+$arr = json_decode(stripslashes($_COOKIE['login']), true);
+$myid = $arr['uid'];
+$name = $arr['name'];
+$super_admin = $arr['super_admin'];
+
 ?>
 
 <!DOCTYPE html>
@@ -73,47 +95,74 @@ function filterTable($query)
               color: black;
             }
        </style>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <style type="text/css">
+            body{ font: 14px sans-serif; }
+            .wrapper{ width: 350px; padding: 20px; }
+        </style>
     </head>
-    <body>
-		<h2>Search event by start and end time</h2>
-    <form action="searchEvent.php" method="post">
+	<body>
+		<div class="container">
+			<div class="jumbotron">
+				<h1>Welcome to the Search Interface!</h1>
+				<p>Here you can...
+					<ul>
+						<li>Search event by start and end time.</li>
+					</ul>
+				</p>
+			</div>
 			
-    <label>Start Date</label>
-    <input type=date name="input_S_Date">
-    <input type=time name="input_S_Time">
-    <br></br>
-    <label>End Date </label>
-    <input type=date name="input_E_Date">
-    <input type=time name="input_E_Time">
-    <br></br>
-    <input type="submit" name=search value="Show Events">
-    <br></br>
-	
-	<h2> Or search currently ongoing events by city</h2>
-	<input type=text name="input_City">
-    <input type="submit" name=searchC value="Show Events">
-	<br></br>
-	
-	
-    <table>
-      <tr>
-          <th>Name</th>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th>url</th>
-      </tr>
+			<div class="container">
+				<p>
+					<div>
+					<?php echo resetPassword() ?>
+					<?php echo signOut() ?>
+					</div>
+				</p>
+			</div>
+		</div>
+		<div class="container">
+            <h2>Search event by start and end time</h2>
+            <form action="searchEvent.php" method="post">
+                    
+            <label>Start Date</label>
+            <input  class="form-control" type=date name="input_S_Date">
+            <input  class="form-control" type=time name="input_S_Time">
+            <br></br>
+            <label>End Date </label>
+            <input class="form-control"  type=date name="input_E_Date">
+            <input class="form-control"  type=time name="input_E_Time">
+            <br>
+            <input  class="btn btn-primary mb-2" type="submit" name=search value="Show Events">
+            <br></br>
+            
+            <h2> Or search currently ongoing events by city</h2>
+            <input class="form-control"  type=text name="input_City"><br>
+            <input  class="btn btn-primary mb-2" type="submit" name=searchC value="Show Events">
+            <br></br>
+            
+            
+            <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>url</th>
+            </tr>
 
-      <!-- populate table from mysql database -->
-      <?php while($row = mysqli_fetch_array($search_result)):?>
-        <tr>
-            <td><?php echo $row['name'];?></td>
-            <td><?php echo $row['startDate'];?></td>
-            <td><?php echo $row['endDate'];?></td>
-            <td><?php echo $row['url'];?></td>
-        </tr>
-      <?php endwhile;?>
-     </table>
-     </form>
-        
+            <!-- populate table from mysql database -->
+            <?php while($row = mysqli_fetch_array($search_result)):?>
+                <tr>
+                    <td><?php echo $row['name'];?></td>
+                    <td><?php echo $row['startDate'];?></td>
+                    <td><?php echo $row['endDate'];?></td>
+                    <td><?php echo $row['url'];?></td>
+                </tr>
+            <?php endwhile;?>
+            </table>
+            </form>
+        </div>
     </body>
 </html>
