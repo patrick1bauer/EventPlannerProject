@@ -23,7 +23,7 @@ function accept_event($eid, $mysqli) {
   $result = query("DELETE FROM eventrequestcreate where eid=$eid", $mysqli);
   if ($result)
     echo "Event Request Deleted";
-  header('location:requests.php?eventcreate=true');
+  header('location:http://www.eventplannerproject.com/EventPlannerProject/events/requests.php?eventcreate=true');
 }
 function reject_event($eid, $mysqli) {
   $result = query("DELETE from eventrequestcreate where eid=$eid", $mysqli);
@@ -32,7 +32,7 @@ function reject_event($eid, $mysqli) {
   $result = query("DELETE FROM events where eid=$eid", $mysqli);
   if ($result)
     echo "Event Deleted";
-  header('location:requests.php?eventcreate=false');
+  header('location:http://www.eventplannerproject.com/EventPlannerProject/events/requests.php?eventcreate=false');
 }
 
 // Event RSVP button functions
@@ -43,7 +43,7 @@ function accept_rsvp($uid, $eid, $mysqli) {
     if ($result) {
       $result = query("DELETE FROM requesteventjoin WHERE eid=$eid && uid=$uid", $mysqli);
       if ($result) {
-        header('location:requests.php?eventcreate=true');
+        header('location:http://www.eventplannerproject.com/EventPlannerProject/events/requests.php?eventcreate=true');
       } else {
         die();
       }
@@ -56,7 +56,7 @@ function reject_rsvp($uid, $eid, $mysqli) {
   if ($uid && $eid) {
     $result = query("DELETE FROM requesteventjoin WHERE eid=$eid && uid=$uid", $mysqli);
     if ($result) {
-      header('location:requests.php?eventinvite=false');
+      header('location:http://www.eventplannerproject.com/EventPlannerProject/events/requests.php?eventinvite=false');
     } else {
       die();
     }
