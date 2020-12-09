@@ -20,11 +20,11 @@ function getList($id){
 	else
 	{
 		// Begin Table
-		echo "<table id=\"ListEvents\">
+		echo "<table id=\"ListEvents\" class='table'>
 				<tr>
-					<td>Title</td>
-					<td>URL</td>
-					<td style=\"display:none\">Active</td>
+					<th>Title</th>
+					<th>URL</th>
+					<th style=\"display:none\">Active</th>
 				</tr>";
 		
 		// Record current time for comparisons
