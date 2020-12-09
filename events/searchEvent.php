@@ -150,6 +150,7 @@ $super_admin = $arr['super_admin'];
                 <th>Name</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>City</th>
                 <th>url</th>
             </tr>
 
@@ -159,6 +160,7 @@ $super_admin = $arr['super_admin'];
                     <td><?php echo $row['name'];?></td>
                     <td><?php echo $row['startDate'];?></td>
                     <td><?php echo $row['endDate'];?></td>
+                    <td><?php echo $row['city'];?></td>
                     <td><?php echo $row['url'];?></td>
                 </tr>
             <?php endwhile;?>
