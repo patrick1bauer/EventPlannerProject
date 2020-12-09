@@ -23,10 +23,10 @@ function navbar() {
       </div>
       <ul class="nav navbar-nav">
         <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/home.php">Home</a></li>
-        <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/searchEvent.php">Events</a></li>
     EOF;
         if(!isset($_COOKIE['login'])) {
           print <<<EOF
+            <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/searchEvent.php">Events</a></li>
             <li><a href="http://www.eventplannerproject.com/EventPlannerProject/login.php">Login</a></li>
             <li><a href="http://www.eventplannerproject.com/EventPlannerProject/register.php">Sign up</a></li>
           EOF;
