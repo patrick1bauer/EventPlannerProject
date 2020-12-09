@@ -1,6 +1,6 @@
 <?php
-include('http://www.eventplannerproject.com/EventPlannerProject/config.php');
-include('http://www.eventplannerproject.com/EventPlannerProject/helper.php');
+include('../config.php');
+include('../helper.php');
 
 session_start();
 
