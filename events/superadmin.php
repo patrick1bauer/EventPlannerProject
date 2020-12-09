@@ -76,6 +76,8 @@ $arr = array(
 setcookie("login", json_encode($arr), time() + 3600);
 */
 
+// Navigation bar
+navbar();
 // Check if user is logged in.  If not, kick to home.
 if(!isset($_COOKIE['login']))
 {
