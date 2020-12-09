@@ -52,9 +52,9 @@ function filterTable($query)
     $filter_Result = mysqli_query($conn, $query) or die( mysqli_error($conn));
     return $filter_Result;
 }
-
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <title>Search Events</title>
