@@ -39,9 +39,9 @@ function filterTable($query)
 {
 	// credentials for connecting to the database
     $servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "dbms";
+	$username = "cop4710user";
+	$password = "cop4710password";
+	$dbname = "cop4710u_dbms";
 	
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
