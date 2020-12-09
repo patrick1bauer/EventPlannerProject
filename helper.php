@@ -33,11 +33,12 @@ function navbar() {
         } else {
           $arr = json_decode(stripslashes($_COOKIE['login']), true);
           print <<<EOF
-            <li><a href="requests.php"</a>Requests</li>
+            <li><a href="requests.php">Requests</a></li>
+            <li><a href="../interfaces/adminInterface.php">Admin Interface</a></li>
           EOF;
           if (arr['super_admin'] == 1) {
             print <<<EOF
-              <li><a href="superadmin.php"</a>Super Admin</li>
+              <li><a href="superadmin.php">Super Admin</a></li>
             EOF;
           }
         }
