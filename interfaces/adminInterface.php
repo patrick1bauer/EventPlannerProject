@@ -2,13 +2,13 @@
 // Initialize the session
 session_start();
 
-include '../events/listEvents.php';
-include('../helper.php');
+include 'http://www.eventplannerproject.com/EventPlannerProject/events/listEvents.php';
+include('http://www.eventplannerproject.com/EventPlannerProject/helper.php');
 
 // Check if the user is logged in, if not then redirect them to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true)
 {
-	header("location: ../login.php");
+	header("location: http://www.eventplannerproject.com/EventPlannerProject/login.php");
 	exit;
 }
 

@@ -1,6 +1,6 @@
 <?php
-include('../config.php');
-include('../helper.php');
+include('http://www.eventplannerproject.com/EventPlannerProject/config.php');
+include('http://www.eventplannerproject.com/EventPlannerProject/helper.php');
 
 session_start();
 
@@ -23,7 +23,7 @@ setcookie("login", json_encode($arr), time() + 3600);
 
 // Check if user is logged in.  If not, kick to home.
 if(!isset($_COOKIE['login'])) {
-  header("Location: home.php");
+  header("Location: http://www.eventplannerproject.com/EventPlannerProject/events/home.php");
 }
 
 

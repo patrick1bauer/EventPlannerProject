@@ -19,26 +19,26 @@ function navbar() {
     <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="">EventPlannerProject</a>
+        <a class="navbar-brand" href="http://www.eventplannerproject.com/EventPlannerProject/events/home.php">EventPlannerProject</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="home.php">Home</a></li>
+        <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/home.php">Home</a></li>
         <li><a href="events.php">Events</a></li>
     EOF;
         if(!isset($_COOKIE['login'])) {
           print <<<EOF
-            <li><a href="../login.php">Login</a></li>
-            <li><a href="../register.php">Sign up</a></li>
+            <li><a href="http://www.eventplannerproject.com/EventPlannerProject/login.php">Login</a></li>
+            <li><a href="http://www.eventplannerproject.com/EventPlannerProject/register.php">Sign up</a></li>
           EOF;
         } else {
           $arr = json_decode(stripslashes($_COOKIE['login']), true);
           print <<<EOF
-            <li><a href="requests.php">Requests</a></li>
-            <li><a href="../interfaces/adminInterface.php">Admin Interface</a></li>
+            <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/requests.php">Requests</a></li>
+            <li><a href="http://www.eventplannerproject.com/EventPlannerProject/interfaces/adminInterface.php">Admin Interface</a></li>
           EOF;
           if (arr['super_admin'] == 1) {
             print <<<EOF
-              <li><a href="superadmin.php">Super Admin</a></li>
+              <li><a href="http://www.eventplannerproject.com/EventPlannerProject/events/superadmin.php">Super Admin</a></li>
             EOF;
           }
         }
@@ -52,14 +52,14 @@ function navbar() {
 function resetPassword()
 {
   print <<<EOF
-    <a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
+    <a href="http://www.eventplannerproject.com/EventPlannerProject/reset-password.php" class="btn btn-warning">Reset Password</a>
   EOF;
 }
 
 function signOut()
 {
   print <<<EOF
-    <a href="../logout.php" class="btn btn-danger">Sign Out</a>
+    <a href="http://www.eventplannerproject.com/EventPlannerProject/logout.php" class="btn btn-danger">Sign Out</a>
   EOF;
 }
 
