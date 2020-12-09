@@ -24,9 +24,16 @@ $super_admin = $arr['super_admin'];
 
 <!DOCTYPE html>
 <html>
-	<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	</head>
+        <style type="text/css">
+            body{ font: 14px sans-serif; }
+            .wrapper{ width: 350px; padding: 20px; }
+        </style>
+    </head>
 	<body>
 		<p>
 			<a href="../reset-password.php" class="btn btn-warning">Reset Password</a>
