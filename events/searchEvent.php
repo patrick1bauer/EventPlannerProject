@@ -1,4 +1,4 @@
-ini_set('display errors', '1');
+ini_set('display_errors', '1');
 <?php
 if(isset($_POST['search']))
 {
